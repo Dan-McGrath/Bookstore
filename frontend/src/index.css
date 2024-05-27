@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Regular';
+    src: local('Lora'),
+    url('./assets/fonts/Lora-Medium.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'Bold';
+    src: local('Lora'),
+    url('./assets/fonts/Lora-Bold.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'SemiBoldItalics';
+    src: local('Lora'),
+    url('./assets/fonts/Lora-SemiBoldItalic.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: 'SemiBold';
+    src: local('Lora'),
+    url('./assets/fonts/Lora-SemiBold.ttf') format('truetype')
+}
+
+@layer base {
+    html {
+      font-family: "Regular", system-ui, serif;
+    }
+  }
+
+#root {
+    background: #F2D7B6;
+    color: #F2F2F2;
+  }
+  
