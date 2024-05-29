@@ -1,20 +1,15 @@
-import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../UserContext';
-import { AuthContext } from '../AuthContext';
 import Button from '../../components/Button';
+import { useAuth } from '../../hooks/useAuth';
+
+const userInfo = { firstName: 'Dan', LastName: 'McGrath' };
 
 const Login = () => {
-  const userContext = useContext(UserContext);
-  const authContext = useContext(AuthContext);
-  const navigate = useNavigate();
-  const login = () => {
-    userContext.firstName = 'Dan';
-    userContext.lastName = 'McGrath';
-    authContext.isAuthorized = true;
-    navigate('/library');
+  const { login } = useAuth;
+  const onSubmit = () => {
+    login(userInfo);
   };
-  return <Button text="Login" onclick={login} />;
+
+  return <Button text="Login" onclick={onSubmit} />;
 };
 
 export default Login;

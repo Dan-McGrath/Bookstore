@@ -1,14 +1,13 @@
+import { useAuth } from '../../hooks/useAuth';
 import Button from '../Button';
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { AuthContext } from '../../store/AuthContext';
 
 const Header = () => {
-  const authContext = useContext(AuthContext);
+  const { logout, user } = useAuth();
   const navigate = useNavigate();
-  const logout = () => {
-    authContext.isAuthorized = false;
-    navigate('/');
+
+  const handleLogout = () => {
+    logout();
   };
 
   return (
@@ -16,9 +15,9 @@ const Header = () => {
       <div>
         <img className="rounded-full max-w-16 min-w-12 max-h-16 min-h-16" src="./images/CozyCorner.png" alt="Logo" />
       </div>
-      {authContext.isAuthorized ? (
+      {user ? (
         <>
-          <Button text={'Logout'} onclick={logout} />
+          <Button text={'Logout'} onclick={handleLogout} />
         </>
       ) : (
         <>
