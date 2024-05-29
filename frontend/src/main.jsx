@@ -7,7 +7,7 @@ import { UserContext } from './store/UserContext.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthContext.Provider value={false}>
+    <AuthContext.Provider value={{ isAuthorized: false }}>
       <UserContext.Provider value={{}}>
         <App />
       </UserContext.Provider>
