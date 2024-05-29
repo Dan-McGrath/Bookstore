@@ -12,7 +12,9 @@ const appRouter = createBrowserRouter(
       <Route errorElement={<ErrorPage />}>
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
-        <Route path="library" element={<Auth />}></Route>
+        <Route path="library" element={<Auth />}>
+          <Route index element={<DashBoard />} />
+        </Route>
       </Route>
     </Route>,
   ),
