@@ -1,6 +1,12 @@
 import Testimonials from './Testimonials';
-
+import { useAuth } from '../../hooks/useAuth';
+import { Navigate } from 'react-router-dom';
 const Home = () => {
+  const { user } = useAuth();
+
+  if (user) {
+    return <Navigate to="/library" />;
+  }
   return (
     <>
       <div>
