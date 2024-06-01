@@ -1,10 +1,19 @@
+import SideNav from '../../components/Layout/SideNav';
 import { useAuth } from '../../hooks/useAuth';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 
 const Auth = ({ children }) => {
   const { user } = useAuth();
 
-  return !user ? <Navigate to="/login" /> : children;
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
+
+  return (
+    <>
+      <SideNav />
+    </>
+  );
 };
 
 export default Auth;
