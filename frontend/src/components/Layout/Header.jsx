@@ -1,6 +1,6 @@
 import { useAuth } from '../../hooks/useAuth';
 import Button from '../Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Header = () => {
   const { logout, user } = useAuth();
@@ -12,9 +12,11 @@ const Header = () => {
 
   return (
     <div className="flex items-center justify-between w-full p-4 bg-lightBrown">
-      <div>
-        <img className="rounded-full max-w-16 min-w-12 max-h-16 min-h-16" src="./images/CozyCorner.png" alt="Logo" />
-      </div>
+      <Link to="/">
+        <div>
+          <img className="rounded-full max-w-16 min-w-12 max-h-16 min-h-16" src="./images/CozyCorner.png" alt="Logo" />
+        </div>
+      </Link>
       {user ? (
         <>
           <Button text={'Logout'} onclick={handleLogout} />
