@@ -1,7 +1,7 @@
-const Button = ({ text, className, onclick = null }) => {
+const Button = ({ text, className, onclick = null, type = 'text' }) => {
   return (
-    <div className="px-3 py-1 rounded-full bg-darkBrown">
-      <button className={className} onClick={onclick}>
+    <div role="button" tabIndex={0} onClick={onclick} className="px-3 py-1 rounded-full bg-darkBrown">
+      <button className={className} type={type}>
         {text}
       </button>
     </div>
