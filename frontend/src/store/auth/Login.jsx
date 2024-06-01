@@ -1,15 +1,20 @@
 import Button from '../../components/Button';
 import { useAuth } from '../../hooks/useAuth';
 
-const userInfo = { firstName: 'Dan', LastName: 'McGrath' };
-
 const Login = () => {
-  const { login } = useAuth;
-  const onSubmit = () => {
-    login(userInfo);
+  const { login } = useAuth();
+
+  const onSubmit = async () => {
+    await login({ username: 'admin' });
   };
 
-  return <Button text="Login" onclick={onSubmit} />;
+  return (
+    <>
+      <form onSubmit={onSubmit}>
+        <Button text="Login" />
+      </form>
+    </>
+  );
 };
 
 export default Login;
